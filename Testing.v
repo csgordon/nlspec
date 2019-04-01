@@ -9,8 +9,6 @@ Require Import Specs.
 Require Import Dictionary.
 
 
-Set Typeclasses Unique Instances.
-
 
 Definition addone (n:nat) := n + 1.
 Polymorphic Instance addonelexicon : lexicon "addone" NP := { denotation := addone }.
@@ -179,4 +177,6 @@ Check or_adj.
 eapply SynthLApp; try dictionary. eapply SynthRApp. dictionary. dictionary.
 Qed.
 Goal spec "every natural is odd or even".
-Abort.
+Proof.
+  intro. simpl. apply Even.even_or_odd.
+Qed.

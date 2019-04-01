@@ -7,7 +7,7 @@ Require Import StringSplit.
 Require Import CCG.
 
 Polymorphic Instance onelexicon : lexicon (fromStr "one") NP := { denotation := 1 }.
-(* This adds denotation isn't right, since it really should be taking the subj as a function *)
+
 Polymorphic Instance addslexicon : lexicon ("adds") (NP \\ (S // NP)) := {
  denotation := fun subj dirobj => forall (x:nat), subj x = x + dirobj }.
 Polymorphic Instance foolexicon : lexicon "foo" NP := { denotation := 0 }.
